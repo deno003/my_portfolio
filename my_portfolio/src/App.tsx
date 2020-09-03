@@ -1,17 +1,14 @@
 // react関連
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 // style
+import theme from './shared/styles/theme'
+import { ThemeProvider as MaterialThemeProvider, StylesProvider } from '@material-ui/styles';
+import { ThemeProvider as StyledThemeProvider} from 'styled-components';
 
-// component
-import Navbar from './components/Navbar';
+// Router
+import Routes from './routes';
 
-// pages
-import About from './components/pages/About/index';
-import Home from './components/pages/Home/index';
-import Skills from './components/pages/Skills/index';
-import Social from './components/pages/Social/index';
-import Works from './components/pages/Works/index';
 
 interface sideDrawerState {
   isOpen: boolean;
@@ -26,24 +23,16 @@ class App extends React.Component<{}, sideDrawerState> {
   }
 
   public render() {
-    // let backDrop;
-    // if (this.state.isOpen) {
-    //   backDrop = <BackDrop backDropClickHandler={this.backdropClickHandler} />;
-    // }
     return (
-      <Router>
-        <div className="App">
-          <Navbar />
-          <Switch>
-            <Route path="/about" component={About} />
-            <Route path="/skills" component={Skills} />
-            <Route path="/social" component={Social} />
-            <Route path="/works" component={Works} />
-            <Route path="/" component={Home} />
-            <Route component={Home} />
-          </Switch>
-        </div>
-      </Router>
+      <StylesProvider injectFirst>
+        <MaterialThemeProvider theme={theme}>
+          <StyledThemeProvider theme={theme}>
+            <div className="App">
+                <Routes />
+              </div>
+         </StyledThemeProvider>
+        </MaterialThemeProvider>
+      </StylesProvider>
     );
   }
 }

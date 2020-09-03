@@ -1,33 +1,39 @@
 import * as React from 'react';
 import { IconContext } from 'react-icons';
 import { MdMenu } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
+import withStyles, {WithStyles, StyleRules } from "@material-ui/styles/withStyles";
+import createStyles from '@material-ui/core/styles/createStyles';
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
 
 // material-ui
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-// import {
-//   withStyles,
-//   Theme,
-//   WithStyles,
-//   createStyles,
-// } from '@material-ui/core/styles';
 
 import styled from 'styled-components';
 
-interface iprops {
-  // drawToggleClickHandler(): void;
-}
-
-class Navbar extends React.Component<iprops, {}> {
-  constructor(props: iprops) {
-    super(props);
+const styles = (theme:Theme) : StyleRules => createStyles({
+  AppBar: {
+    position: "relative",
+    boxShadow: "none",
+    borderBottom: `1px solid ${theme.palette.grey["100"]}`,
+    backgroundColor: "black"
   }
+});
 
+// withRouterの引数はコンポーネントのPropsにRouteComponentPropsを指定したコンポーネントである必要がある。
+// componentのpropsをwithStyles<typeof styles>で拡張
+interface Props extends RouteComponentProps<{}>, React.Props<{}>, WithStyles<typeof styles> {
+    // drawToggleClickHandler(): void;
+}
+  
+
+class Navbar extends React.Component<Props> {
   public render() {
+    const {classes} = this.props;
     return (
       <div>
-        <AppBar position="static">
+        <AppBar position="static" className={classes.AppBar}>
           <Toolbar>
             <MenuIconWrapper onClick={this.clickHandler}>
               <IconContext.Provider value={{ color: 'white', size: '1.5em' }}>
@@ -90,4 +96,4 @@ const LinkWrapper = styled(Link)`
   padding: 16px 1rem;
 `;
 
-export default Navbar;
+export default withRouter(withStyles(styles)(Navbar));

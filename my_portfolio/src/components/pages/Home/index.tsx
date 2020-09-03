@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
+import { TopTitleWrapper } from 'shared/styles/titleWrapper.js';
 
 class Home extends Component<{}> {
   constructor(props: {}) {
@@ -8,7 +10,10 @@ class Home extends Component<{}> {
   public render() {
     return (
       <div>
-        <p>Home</p>
+        <Helmet>
+          <title>deno_etml'd portfolio site</title>
+        </Helmet>
+        <TopTitleWrapper>Hello, I'm Deno_etml</TopTitleWrapper>
       </div>
     );
   }

@@ -2,13 +2,18 @@
 import * as React from 'react';
 
 // style
-import theme from './shared/styles/theme'
-import { ThemeProvider as MaterialThemeProvider, StylesProvider } from '@material-ui/styles';
-import { ThemeProvider as StyledThemeProvider} from 'styled-components';
+import theme from './shared/styles/theme';
+import {
+  ThemeProvider as MaterialThemeProvider,
+  StylesProvider,
+} from '@material-ui/styles';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 // Router
 import Routes from './routes';
 
+// components
+import NavBar from './components/Navbar';
 
 interface sideDrawerState {
   isOpen: boolean;
@@ -28,9 +33,10 @@ class App extends React.Component<{}, sideDrawerState> {
         <MaterialThemeProvider theme={theme}>
           <StyledThemeProvider theme={theme}>
             <div className="App">
-                <Routes />
-              </div>
-         </StyledThemeProvider>
+              <NavBar />
+              <Routes />
+            </div>
+          </StyledThemeProvider>
         </MaterialThemeProvider>
       </StylesProvider>
     );

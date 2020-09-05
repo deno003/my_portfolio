@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Social extends Component<{}> {
-  constructor(props: {}) {
-    super(props);
-  }
+const Social:React.FC = () => {
+  return (
+    <div>
+      <p>Social</p>
+    </div>
+  );
 
-  public render() {
-    return (
-      <div>
-        <p>Socail</p>
-      </div>
-    );
-  }
 }
 
 export default Social;

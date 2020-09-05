@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Skills extends Component<{}> {
-  constructor(props: {}) {
-    super(props);
-  }
+const Skills:React.FC = () => {
+  return (
+    <div>
+      <p>Skills</p>
+    </div>
+  );
 
-  public render() {
-    return (
-      <div>
-        <p>Skills</p>
-      </div>
-    );
-  }
 }
 
 export default Skills;

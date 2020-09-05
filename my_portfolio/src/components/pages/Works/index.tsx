@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Works extends Component<{}> {
-  constructor(props: {}) {
-    super(props);
-  }
+const Works:React.FC = () => {
+  return (
+    <div>
+      <p>Works</p>
+    </div>
+  );
 
-  public render() {
-    return (
-      <div>
-        <p>Works</p>
-      </div>
-    );
-  }
 }
 
 export default Works;

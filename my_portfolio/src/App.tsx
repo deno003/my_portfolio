@@ -1,5 +1,5 @@
 // react関連
-import * as React from 'react';
+import React　from 'react';
 
 // style
 import theme from './shared/styles/theme';
@@ -15,32 +15,20 @@ import Routes from './routes';
 // components
 import NavBar from './components/Navbar';
 
-interface sideDrawerState {
-  isOpen: boolean;
-}
-
-class App extends React.Component<{}, sideDrawerState> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      isOpen: false,
-    };
-  }
-
-  public render() {
-    return (
-      <StylesProvider injectFirst>
-        <MaterialThemeProvider theme={theme}>
-          <StyledThemeProvider theme={theme}>
-            <div className="App">
-              <NavBar />
-              <Routes />
-            </div>
-          </StyledThemeProvider>
-        </MaterialThemeProvider>
-      </StylesProvider>
-    );
-  }
+const App:React.FC = () => {
+  
+  return (
+    <StylesProvider injectFirst>
+      <MaterialThemeProvider theme={theme}>
+        <StyledThemeProvider theme={theme}>
+          <div className="App">
+            <NavBar />
+            <Routes />
+          </div>
+        </StyledThemeProvider>
+      </MaterialThemeProvider>
+    </StylesProvider>
+  );
 }
 
 export default App;

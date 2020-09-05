@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class About extends Component<{}> {
-  constructor(props: {}) {
-    super(props);
-  }
+const About:React.FC = () => {
+  return (
+    <div>
+      <p>About</p>
+    </div>
+  );
 
-  public render() {
-    return (
-      <div>
-        <p>About</p>
-      </div>
-    );
-  }
 }
 
 export default About;

@@ -10,7 +10,7 @@ import {
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 // Router
-import Routes from './routes';
+// import Routes from './routes';
 
 // components
 import NavBar from './components/Navbar';
@@ -23,7 +23,7 @@ const App:React.FC = () => {
         <StyledThemeProvider theme={theme}>
           <div className="App">
             <NavBar />
-            <Routes />
+            {/* <Routes /> */}
           </div>
         </StyledThemeProvider>
       </MaterialThemeProvider>

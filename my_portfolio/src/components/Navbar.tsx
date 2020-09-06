@@ -1,14 +1,69 @@
 import * as React from 'react';
-import { IconContext } from 'react-icons';
-import { MdMenu } from 'react-icons/md';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 // material-ui
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+// import Toolbar from '@material-ui/core/Toolbar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
-import styled from 'styled-components';
+// import styled from 'styled-components';
+
+// components
+import Home from './pages/Home/index'
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index:any;
+  value:any;
+}
+
+const TabPanel:React.FC<TabPanelProps> = (props: TabPanelProps) => {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`nav-tabpanel-${index}`}
+      aria-labelledby={`nav-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={0}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+function a11yProps(index: any) {
+  return {
+    id: `nav-tab-${index}`,
+    'aria-controls': `nav-tabpanel-${index}`,
+  };
+}
+
+type LinkTabProps = {
+  label?: string;
+  href?: string;
+}
+
+const LinkTab:React.FC<LinkTabProps> = (props:LinkTabProps) => {
+  return (
+    <Tab
+      component="a"
+      onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        event.preventDefault(); 
+      }}
+      {...props}
+    ></Tab>
+  );
+}
 
 const useStyles = makeStyles((theme:Theme) => ({
   AppBar: {
@@ -19,72 +74,42 @@ const useStyles = makeStyles((theme:Theme) => ({
   },
 }));
 
-const Navbar:React.FC = (Props:any) => {
+const NavTabs:React.FC = (Props:any) => {
   const classes = useStyles(Props);
+  const [value, setValue] = React.useState(0);
 
-  const clickHandler = () => {
-    // this.props.drawToggleClickHandler();
-  };
+  const handleChange = (event: React.ChangeEvent<{}>, newValue:number) =>{
+    setValue(newValue);
+  }
 
   return (
     <div>
       <AppBar position="static" className={classes.AppBar}>
-        <Toolbar>
-          <MenuIconWrapper onClick={clickHandler}>
-            <IconContext.Provider value={{ color: 'white', size: '1.5em' }}>
-              <MdMenu />
-            </IconContext.Provider>
-          </MenuIconWrapper>
-          <TitleWrapper to="/">Deno_etml Portfolio</TitleWrapper>
-          <GrowWrapper />
-          <NavigationItemsWrapper>
-            <LinkWrapper to="/about">About</LinkWrapper>
-            <LinkWrapper to="/skills">Skills</LinkWrapper>
-            <LinkWrapper to="/works">Works</LinkWrapper>
-            <LinkWrapper to="/social">Social</LinkWrapper>
-          </NavigationItemsWrapper>
-        </Toolbar>
+        <Tabs variant="fullWidth" value={value} onChange={handleChange} aria-label="nav tabs">
+          <LinkTab label="Home" href="/" {...a11yProps(0)}/>
+            <LinkTab label="About" href="/About" {...a11yProps(1)} />
+          <LinkTab label="Skills"href="/Skills" {...a11yProps(2)} />
+          <LinkTab label="Works" href="/Works"{...a11yProps(3)} />
+          <LinkTab label="Social" href="/Social"{...a11yProps(4)} />
+        </Tabs>
       </AppBar>
+      <TabPanel value={value} index={0}>
+        <Home />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Page2
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        Page3
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Page4
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        Page5
+      </TabPanel>
     </div>
   );
 }
 
-
-const MenuIconWrapper = styled.div`
-  @media (min-width: 769px) {
-    display: none;
-  }
-`;
-
-const GrowWrapper = styled.div`
-  flex: 1;
-`;
-
-const TitleWrapper = styled(Link)`
-  color: white;
-  font-size: 1.5rem;
-  padding: 0 1rem;
-  text-decoration: none;
-  @media (min-width: 769px) {
-    padding: 0 0rem;
-  }
-`;
-
-const NavigationItemsWrapper = styled.div`
-  height: 100%;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  @media (max-width: 769px) {
-    display: none;
-  }
-`;
-
-const LinkWrapper = styled(Link)`
-  color: white;
-  text-decoration: none;
-  padding: 16px 1rem;
-`;
-
-export default withRouter(Navbar);
+export default withRouter(NavTabs);

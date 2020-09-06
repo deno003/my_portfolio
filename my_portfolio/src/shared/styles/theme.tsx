@@ -14,9 +14,6 @@ const theme = createMuiTheme({
             primary:"#212121",
             secondary:"#757575",
         },
-        // divider:{
-        //     main:"#BDBDBD"
-        // },
     },
     typography: {
         button: {

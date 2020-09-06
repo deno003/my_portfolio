@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { TopTitleWrapper } from 'shared/styles/titleWrapper';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingBottom: 400,
   },
 }));
-
+ 
 const Home:React.FC = (Props:any) => {
   const classes = useStyles(Props);
   return(
@@ -29,4 +29,5 @@ const Home:React.FC = (Props:any) => {
     )
   };
 
-export default withRouter(Home);
+
+export default Home;

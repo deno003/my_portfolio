@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { withRouter } from 'react-router-dom';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 // material-ui
 import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
@@ -13,7 +11,27 @@ import Box from '@material-ui/core/Box';
 // import styled from 'styled-components';
 
 // components
-import Home from './pages/Home/index'
+import Home from 'components/pages/Home/index';
+import About from 'components/pages/About/index';
+import Skills from 'components/pages/Skills/index';
+import Social from 'components/pages/Social/index';
+import Works from 'components/pages/Works/index';
+
+// styles
+const useStyles = makeStyles((theme:Theme) => ({
+  AppBar: {
+    position: "relative",
+    boxShadow: "none",
+    borderBottom: `1px solid ${theme.palette.grey["100"]}`,
+    backgroundColor: "black"
+  },
+  TabPanel:{
+    
+  },
+  LinkTab:{
+    color:"white"
+  }
+}));
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -65,15 +83,6 @@ const LinkTab:React.FC<LinkTabProps> = (props:LinkTabProps) => {
   );
 }
 
-const useStyles = makeStyles((theme:Theme) => ({
-  AppBar: {
-    position: "relative",
-    boxShadow: "none",
-    borderBottom: `1px solid ${theme.palette.grey["100"]}`,
-    backgroundColor: "black"
-  },
-}));
-
 const NavTabs:React.FC = (Props:any) => {
   const classes = useStyles(Props);
   const [value, setValue] = React.useState(0);
@@ -84,7 +93,25 @@ const NavTabs:React.FC = (Props:any) => {
 
   return (
     <div>
+      <div className={classes.TabPanel}>
+      <TabPanel value={value} index={0}>
+        <Home />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <About />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <Skills />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <Works />
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        <Social />
+      </TabPanel>
+      </div>
       <AppBar position="static" className={classes.AppBar}>
+      <div className={classes.LinkTab}>
         <Tabs variant="fullWidth" value={value} onChange={handleChange} aria-label="nav tabs">
           <LinkTab label="Home" href="/" {...a11yProps(0)}/>
             <LinkTab label="About" href="/About" {...a11yProps(1)} />
@@ -92,24 +119,10 @@ const NavTabs:React.FC = (Props:any) => {
           <LinkTab label="Works" href="/Works"{...a11yProps(3)} />
           <LinkTab label="Social" href="/Social"{...a11yProps(4)} />
         </Tabs>
+        </div>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        <Home />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Page2
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Page3
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        Page4
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Page5
-      </TabPanel>
     </div>
   );
 }
 
-export default withRouter(NavTabs);
+export default NavTabs;

@@ -9,11 +9,8 @@ import {
 } from '@material-ui/styles';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
-// Router
-// import Routes from './routes';
-
 // components
-import NavBar from './components/Navbar';
+import NavTabs from './components/NabTabs';
 
 const App:React.FC = () => {
   
@@ -22,8 +19,7 @@ const App:React.FC = () => {
       <MaterialThemeProvider theme={theme}>
         <StyledThemeProvider theme={theme}>
           <div className="App">
-            <NavBar />
-            {/* <Routes /> */}
+            <NavTabs />
           </div>
         </StyledThemeProvider>
       </MaterialThemeProvider>

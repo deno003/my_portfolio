@@ -10,7 +10,8 @@ import {
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 // components
-import NavTabs from './components/NabTabs';
+// import NavTabs from './components/NabTabs';
+import Main from 'components/Main'
 
 const App:React.FC = () => {
   
@@ -19,7 +20,7 @@ const App:React.FC = () => {
       <MaterialThemeProvider theme={theme}>
         <StyledThemeProvider theme={theme}>
           <div className="App">
-            <NavTabs />
+            <Main />
           </div>
         </StyledThemeProvider>
       </MaterialThemeProvider>

@@ -1,5 +1,5 @@
 // react関連
-import React　from 'react';
+import React, { createContext } from 'react';
 
 // style
 import theme from './shared/styles/theme';
@@ -10,18 +10,24 @@ import {
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 // components
-// import NavTabs from './components/NabTabs';
-import Main from 'components/Main'
+import Main from 'pages/Main';
 
-const App:React.FC = () => {
-  
+// contents
+import worksContents from 'contents/worksContents.json';
+
+// context
+export const WorksContext = createContext(worksContents);
+
+function App() {
   return (
     <StylesProvider injectFirst>
       <MaterialThemeProvider theme={theme}>
         <StyledThemeProvider theme={theme}>
-          <div className="App">
-            <Main />
-          </div>
+          <WorksContext.Provider value={worksContents}>
+            <div className="App">
+              <Main />
+            </div>
+          </WorksContext.Provider>
         </StyledThemeProvider>
       </MaterialThemeProvider>
     </StylesProvider>

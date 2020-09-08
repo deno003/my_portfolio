@@ -14,10 +14,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingBottom: 400,
   },
 }));
- 
-const Home:React.FC = (Props:any) => {
+
+const Home: React.FC = (Props: any) => {
   const classes = useStyles(Props);
-  return(
+  return (
     <div>
       <div className={classes.root}>
         <Helmet>
@@ -26,8 +26,7 @@ const Home:React.FC = (Props:any) => {
         <TopTitleWrapper>Hello, I'm Deno_etml</TopTitleWrapper>
       </div>
     </div>
-    )
-  };
-
+  );
+};
 
 export default Home;

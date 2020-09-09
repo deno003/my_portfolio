@@ -18,12 +18,16 @@ const useStyle = makeStyles({
 });
 
 type iProps = {
+  item?: item;
+};
+
+type item = {
   title?: string;
   tools?: string;
   text?: string;
   link?: string;
   gitHubUrl?: string;
-}[];
+};
 
 function MediaCard(props: iProps) {
   const classes = useStyle();
@@ -34,10 +38,10 @@ function MediaCard(props: iProps) {
         <CardMedia className={classes.media} image="" title="thumbnail" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Portfolio
+            {props.item?.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            このポートフォリオサイトです。React hooks+TypeScriptで作成しました。
+            {props.item?.text}
           </Typography>
         </CardContent>
       </CardActioArea>

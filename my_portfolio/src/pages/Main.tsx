@@ -11,6 +11,14 @@ import Social from 'pages/Social/index';
 import Works from 'pages/Works/index';
 import NavTabs from 'components/NavTabs';
 
+// import homeContent from 'contents/homeContent.json';
+const homeContent = {
+  title: "Deno's Portfolio",
+  description: "Hello, I'm Deno",
+  image: 'https://source.unsplash.com/random',
+  imgText: "Hello, I'm Deno",
+};
+
 // styles
 const useStyles = makeStyles((theme: Theme) => ({
   Main: {
@@ -25,26 +33,21 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const Main: React.FC = (Props: any) => {
+function Main(Props: any) {
   const classes = useStyles(Props);
-  //   const [value, setValue] = React.useState(0);
-
-  //   const handleChange = (event: React.ChangeEvent<{}>, newValue:number) =>{
-  //     setValue(newValue);
-  //   }
 
   return (
-    <div>
-      <div className={classes.Main}>
-        <Home />
+    <div className={classes.Main}>
+      <main>
+        <Home post={homeContent} />
         <NavTabs />
         <About />
         <Skills />
         <Works />
         <Social />
-      </div>
+      </main>
     </div>
   );
-};
+}
 
 export default Main;

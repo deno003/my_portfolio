@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
 // import styled from 'styled-components';
 
@@ -14,9 +15,13 @@ import NavTabs from 'components/NavTabs';
 // import homeContent from 'contents/homeContent.json';
 const homeContent = {
   title: "Deno's Portfolio",
-  description: "Hello, I'm Deno",
+  description: "Hello, I'm Deno\nSoftware Developer",
   image: 'https://source.unsplash.com/random',
   imgText: "Hello, I'm Deno",
+};
+
+const aboutContent = {
+  text: 'About me',
 };
 
 // styles
@@ -27,26 +32,22 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderBottom: `1px solid ${theme.palette.grey['100']}`,
     backgroundColor: 'black',
   },
-  TabPanel: {},
-  LinkTab: {
-    color: 'white',
-  },
 }));
 
 function Main(Props: any) {
   const classes = useStyles(Props);
 
   return (
-    <div className={classes.Main}>
+    <Container maxWidth="lg" className={classes.Main}>
       <main>
         <Home post={homeContent} />
         <NavTabs />
-        <About />
+        <About post={aboutContent} />
         <Skills />
         <Works />
         <Social />
       </main>
-    </div>
+    </Container>
   );
 }
 

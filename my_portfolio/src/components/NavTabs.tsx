@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderBottom: `1px solid ${theme.palette.grey['100']}`,
     backgroundColor: 'black',
   },
-  TabPanel: {},
   LinkTab: {
     color: 'white',
   },
@@ -54,7 +53,6 @@ const NavTabs: React.FC = (Props: any) => {
 
   return (
     <div>
-      <div className={classes.TabPanel}></div>
       <AppBar position="static" className={classes.AppBar}>
         <div className={classes.LinkTab}>
           <Tabs

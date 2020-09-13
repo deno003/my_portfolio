@@ -2,8 +2,6 @@ import * as React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-// import styled from 'styled-components';
-
 // components
 import Home from 'pages/Home/index';
 import About from 'pages/About/index';
@@ -18,10 +16,6 @@ const homeContent = {
   description: "Hello, I'm Deno\nSoftware Developer",
   image: 'https://source.unsplash.com/random',
   imgText: "Hello, I'm Deno",
-};
-
-const aboutContent = {
-  text: 'About me',
 };
 
 // styles
@@ -42,7 +36,7 @@ function Main(Props: any) {
       <main>
         <Home post={homeContent} />
         <NavTabs />
-        <About post={aboutContent} />
+        <About />
         <Skills />
         <Works />
         <Social />

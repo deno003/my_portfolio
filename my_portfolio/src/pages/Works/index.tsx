@@ -1,14 +1,24 @@
 import React, { useContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
 // component
 import Card from 'components/Card';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 // contexts
 import { WorksContext } from 'App';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles((theme:Theme) =>({
+  ground: {
+    position: 'relative',
+    backgroundColor: theme.palette.grey[800],
+    color: theme.palette.common.white,
+    marginBottom: theme.spacing(1),
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  },
   container: {
     maxWidth: '1200px',
     margin: '5vh auto',
@@ -16,14 +26,14 @@ const useStyle = makeStyles({
   cardGrid: {
     padding: '0 16px',
   },
-});
+}));
 
 function Works() {
   const contents = useContext(WorksContext);
   const classes = useStyle();
 
   return (
-    <div>
+    <Paper className={classes.ground}>
       <p>Works</p>
       <Grid
         container
@@ -44,7 +54,7 @@ function Works() {
           </Grid>
         ))}
       </Grid>
-    </div>
+      </Paper>
   );
 }
 

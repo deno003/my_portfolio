@@ -8,6 +8,7 @@ import {
   StylesProvider,
 } from '@material-ui/styles';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
 // components
 import Main from 'pages/Main';
@@ -24,7 +25,19 @@ export const WorksContext = createContext(worksContents);
 export const AboutContext = createContext(aboutContents);
 export const SkillsContext = createContext(skillsContents);
 
+  const useStyles = makeStyles((theme: Theme) => ({
+    Main: {
+      position: 'relative',
+      boxShadow: 'none',
+      borderBottom: `1px solid ${theme.palette.grey['100']}`,
+      backgroundColor: 'black',
+    },
+  }));
+  
+
 function App() {
+  const classes = useStyles();
+
   return (
     <StylesProvider injectFirst>
       <MaterialThemeProvider theme={theme}>
@@ -33,7 +46,7 @@ function App() {
             <WorksContext.Provider value={worksContents}>
               <AboutContext.Provider value={aboutContents}>
                 <SkillsContext.Provider value={skillsContents}>
-                  <div className="App">
+                  <div className={classes.Main}>
                     <Main />
                   </div>
                 </SkillsContext.Provider>

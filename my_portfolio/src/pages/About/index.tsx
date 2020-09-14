@@ -11,7 +11,7 @@ import { AboutContext } from 'App';
 const useStyles = makeStyles((theme: Theme) => ({
   ground: {
     position: 'relative',
-    backgroundColor: theme.palette.grey[800],
+    backgroundColor: theme.palette.grey[900],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(1),
     backgroundSize: 'cover',

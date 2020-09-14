@@ -2,49 +2,66 @@ import * as React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 // material-ui
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
+import { Card, Typography } from '@material-ui/core';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 
 // styles
 const useStyles = makeStyles((theme: Theme) => ({
-  AppBar: {
-    position: 'relative',
-    boxShadow: 'none',
-    borderBottom: `1px solid ${theme.palette.grey['100']}`,
-    backgroundColor: 'black',
+  root: {
+    display: 'flex',
+    backgroundColor: theme.palette.grey[800],
+    color: theme.palette.common.white,
   },
-  LinkTab: {
-    color: 'white',
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  content: {
+    flex: '1 0 auto',
+  },
+  cover: {
+    position: 'relative',
+    margin: theme.spacing(2),
+    width: '15%',
+    height: '15%',
   },
 }));
 
-function SkillsComponent(Props: any){
-  const classes = useStyles(Props);
-  const [value, setValue] = React.useState(0);
+type iProps = {
+  item?: item;
+};
 
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-    setValue(newValue);
-  };
+type item = {
+  image?: string;
+  name?: string;
+  level?: number;
+  usecase?: string;
+};
+
+function SkillsComponent(props: iProps) {
+  const classes = useStyles();
 
   return (
-    <div>
-      <AppBar position="static" className={classes.AppBar}>
-        <div className={classes.LinkTab}>
-          <Tabs
-            variant="fullWidth"
-            value={value}
-            onChange={handleChange}
-            aria-label="nav tabs"
-          >
-            <LinkTab label="About" href="/About" {...a11yProps(1)} />
-            <LinkTab label="Skills" href="/Skills" {...a11yProps(2)} />
-            <LinkTab label="Works" href="/Works" {...a11yProps(3)} />
-            <LinkTab label="Social" href="/Social" {...a11yProps(4)} />
-          </Tabs>
-        </div>
-      </AppBar>
-    </div>
+    <Card className={classes.root}>
+      <CardMedia
+        className={classes.cover}
+        component="img"
+        src={props.item?.image}
+        title={props.item?.name}
+      />
+      <div className={classes.details}>
+        <CardContent className={classes.content}>
+          <Typography component="h5" variant="subtitle1">
+            {props.item?.name}
+          </Typography>
+          <Typography variant="body1">
+            UseCase: {props.item?.usecase}
+          </Typography>
+        </CardContent>
+      </div>
+    </Card>
   );
-};
+}
 
 export default SkillsComponent;

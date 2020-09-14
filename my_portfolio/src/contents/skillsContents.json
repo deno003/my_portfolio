@@ -1,14 +1,56 @@
 [
   {
-    "title": "Profiles",
-    "text": "95/04/25\nI'm Yharnam Hunter, Ashen One, SEKIRO, DARK RAVEN, Ghost of Tsushima, Monster Hunter ... Sometimes an software engineer\nI will be V in January"
+    "image": "https://cdn.svgporn.com/logos/java.svg",
+    "name": "Java8~14",
+    "level": 75,
+    "usecase": "business"
   },
   {
-    "title": "Job",
-    "text": "Software Engineer"
+    "image": "https://cdn.svgporn.com/logos/spring.svg",
+    "name": "Spring",
+    "level": 50,
+    "usecase": "business"
   },
   {
-    "title": "Like",
-    "text": "FPS\nRPG\nMountaineering(Beginner)"
+    "image": "https://cdn.svgporn.com/logos/kotlin.svg",
+    "name": "Kotlin",
+    "level": 40,
+    "usecase": "private"
+  },
+  {
+    "image": "https://cdn.svgporn.com/logos/javascript.svg",
+    "name": "Javascript",
+    "level": 50,
+    "usecase": "business and private"
+  },
+  {
+    "image": "https://cdn.svgporn.com/logos/nodejs-icon.svg",
+    "name": "Node.js",
+    "level": 50,
+    "usecase": "business and private"
+  },
+  {
+    "image": "https://cdn.svgporn.com/logos/jquery.svg",
+    "name": "jQuery",
+    "level": 20,
+    "usecase": "business"
+  },
+  {
+    "image": "https://cdn.svgporn.com/logos/react.svg",
+    "name": "React",
+    "level": 60,
+    "usecase": "private"
+  },
+  {
+    "image": "https://cdn.svgporn.com/logos/docker-icon.svg",
+    "name": "docker",
+    "level": 30,
+    "usecase": "business"
+  },
+  {
+    "image": "https://cdn.svgporn.com/logos/typescript-icon.svg",
+    "name": "Typescript",
+    "level": 50,
+    "usecase": "private"
   }
 ]

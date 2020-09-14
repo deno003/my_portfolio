@@ -6,11 +6,12 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 import { SkillsContext } from 'App';
+import SkillsComponent from 'components/SkillsComponent';
 
 const useStyles = makeStyles((theme: Theme) => ({
   ground: {
     position: 'relative',
-    backgroundColor: theme.palette.grey[800],
+    backgroundColor: theme.palette.grey[900],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(1),
     backgroundSize: 'cover',
@@ -24,11 +25,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   divider: {
     color: theme.palette.common.white,
   },
+  cardGrid: {
+    padding: '0 16px',
+  },
+  container: {
+    maxWidth: '1200px',
+    margin: '5vh auto',
+  },
 }));
 
 function Skills() {
   const classes = useStyles();
-  const contents = useContext(SkillsContext);
+  const contents = useContext(SkillsContext).sort(
+    (a: any, b: any) => b.level - a.level,
+  );
 
   return (
     <Paper className={classes.ground}>
@@ -44,16 +54,26 @@ function Skills() {
               Skills
             </Typography>
             <Divider className={classes.divider} />
-            {contents.map((item, key) => (
-              <Typography variant="h6" color="inherit" paragraph>
-                {item.title}
-                <Typography variant="body1" color="inherit" paragraph>
-                  {item.text.split('\n').map((key: any, item: any) => {
-                    return <div key={item}>- {key}</div>;
-                  })}
-                </Typography>
-              </Typography>
-            ))}
+
+            <Grid
+              container
+              className={classes.container}
+              spacing={3}
+              alignItems="center"
+            >
+              {contents.map((item, key) => (
+                <Grid
+                  item
+                  className={classes.cardGrid}
+                  key={key}
+                  xs={12}
+                  sm={6}
+                  md={4}
+                >
+                  <SkillsComponent item={item} />
+                </Grid>
+              ))}
+            </Grid>
           </div>
         </Grid>
       </Grid>

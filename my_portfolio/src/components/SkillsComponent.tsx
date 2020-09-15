@@ -1,10 +1,16 @@
 import * as React from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import {
+  makeStyles,
+  Theme,
+  withStyles,
+  createStyles,
+} from '@material-ui/core/styles';
 
 // material-ui
 import { Card, Typography } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 // styles
 const useStyles = makeStyles((theme: Theme) => ({
@@ -23,10 +29,30 @@ const useStyles = makeStyles((theme: Theme) => ({
   cover: {
     position: 'relative',
     margin: theme.spacing(2),
-    width: '15%',
-    height: '15%',
+    width: '17%',
+    height: '17%',
+  },
+  progress: {
+    display: 'flex',
+    paddingTop: theme.spacing(1),
   },
 }));
+
+const BorderLinearProgress = withStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      width: '100%',
+    },
+    colorPrimary: {
+      backgroundColor:
+        theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+    },
+    bar: {
+      borderRadius: 5,
+      backgroundColor: '#1a90ff',
+    },
+  }),
+)(LinearProgress);
 
 type iProps = {
   item?: item;
@@ -58,6 +84,12 @@ function SkillsComponent(props: iProps) {
           <Typography variant="body1">
             UseCase: {props.item?.usecase}
           </Typography>
+          <div className={classes.progress}>
+            <BorderLinearProgress
+              variant="determinate"
+              value={props.item?.level}
+            />
+          </div>
         </CardContent>
       </div>
     </Card>

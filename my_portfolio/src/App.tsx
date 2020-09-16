@@ -18,22 +18,23 @@ import homeContents from 'contents/homeContent.json';
 import worksContents from 'contents/worksContents.json';
 import aboutContents from 'contents/aboutContents.json';
 import skillsContents from 'contents/skillsContents.json';
+import socialContents from 'contents/socialContents.json';
 
 // context
 export const HomeContext = createContext(homeContents);
 export const WorksContext = createContext(worksContents);
 export const AboutContext = createContext(aboutContents);
 export const SkillsContext = createContext(skillsContents);
+export const SocialContext = createContext(socialContents);
 
-  const useStyles = makeStyles((theme: Theme) => ({
-    Main: {
-      position: 'relative',
-      boxShadow: 'none',
-      borderBottom: `1px solid ${theme.palette.grey['100']}`,
-      backgroundColor: 'black',
-    },
-  }));
-  
+const useStyles = makeStyles((theme: Theme) => ({
+  Main: {
+    position: 'relative',
+    boxShadow: 'none',
+    borderBottom: `1px solid ${theme.palette.grey['100']}`,
+    backgroundColor: 'black',
+  },
+}));
 
 function App() {
   const classes = useStyles();
@@ -46,9 +47,11 @@ function App() {
             <WorksContext.Provider value={worksContents}>
               <AboutContext.Provider value={aboutContents}>
                 <SkillsContext.Provider value={skillsContents}>
-                  <div className={classes.Main}>
-                    <Main />
-                  </div>
+                  <SocialContext.Provider value={socialContents}>
+                    <div className={classes.Main}>
+                      <Main />
+                    </div>
+                  </SocialContext.Provider>
                 </SkillsContext.Provider>
               </AboutContext.Provider>
             </WorksContext.Provider>

@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'relative',
     boxShadow: 'none',
     borderBottom: `1px solid ${theme.palette.grey['100']}`,
-    backgroundColor: 'black',
+    backgroundColor: theme.palette.common.black,
   },
   LinkTab: {
-    color: 'white',
+    color: theme.palette.common.white,
   },
 }));
 
@@ -31,7 +31,7 @@ type LinkTabProps = {
   href?: string;
 };
 
-const LinkTab: React.FC<LinkTabProps> = (props: LinkTabProps) => {
+function LinkTab(props: LinkTabProps) {
   return (
     <Tab
       component="a"
@@ -41,9 +41,9 @@ const LinkTab: React.FC<LinkTabProps> = (props: LinkTabProps) => {
       {...props}
     ></Tab>
   );
-};
+}
 
-const NavTabs: React.FC = (Props: any) => {
+function NavTabs(Props: any) {
   const classes = useStyles(Props);
   const [value, setValue] = React.useState(0);
 
@@ -70,6 +70,6 @@ const NavTabs: React.FC = (Props: any) => {
       </AppBar>
     </div>
   );
-};
+}
 
 export default NavTabs;

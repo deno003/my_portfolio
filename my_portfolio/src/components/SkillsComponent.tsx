@@ -18,22 +18,25 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
+    alignItems: 'center',
   },
   details: {
-    display: 'flex',
     flexDirection: 'column',
+    flex: '1 0 auto',
   },
   content: {
-    flex: '1 0 auto',
+    alignContent: 'center',
   },
   cover: {
     position: 'relative',
-    margin: theme.spacing(2),
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
     width: '17%',
     height: '17%',
   },
   progress: {
-    display: 'flex',
     paddingTop: theme.spacing(1),
   },
 }));
@@ -73,8 +76,8 @@ function SkillsComponent(props: iProps) {
       <CardMedia
         className={classes.cover}
         component="img"
-        src={props.item?.image}
-        title={props.item?.name}
+        image={props.item?.image}
+        // title={props.item?.name}
       />
       <div className={classes.details}>
         <CardContent className={classes.content}>

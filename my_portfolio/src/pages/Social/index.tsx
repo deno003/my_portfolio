@@ -4,8 +4,8 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-// import GitHubIcon from '@material-ui/icons/GitHub';
-// import TwitterIcon from '@material-ui/icons/Twitter';
+import Twitter from '@material-ui/icons/Twitter';
+import GitHub from '@material-ui/icons/GitHub';
 
 // contexts
 import { SocialContext } from 'App';
@@ -29,11 +29,37 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(2),
   },
+  iconContainer: {
+    backgroundPosition: 'center',
+  },
+  icon: {
+    margin: theme.spacing(2),
+  },
 }));
+
+type icon = {
+  media: string;
+  link: string;
+  icon?: any;
+};
 
 function Social() {
   const classes = useStyles();
-  const contents = useContext(SocialContext);
+  const contents: icon[] = useContext(SocialContext);
+
+  const newContents: icon[] = contents.reduce(
+    (newContents: icon[], content) => {
+      if (content.media === 'Twitter') {
+        content.icon = Twitter;
+        newContents.push(content);
+      } else if (content.media === 'GitHub') {
+        content.icon = GitHub;
+        newContents.push(content);
+      }
+      return newContents;
+    },
+    new Array(),
+  );
 
   return (
     <Paper className={classes.ground}>
@@ -49,9 +75,13 @@ function Social() {
               Social
             </Typography>
             <Divider className={classes.divider} />
-            {contents.map((item, key) => (
-              <p>{item.media}</p>
-            ))}
+            <Grid container className={classes.iconContainer}>
+              {newContents.map((item: icon, key) => (
+                <Grid item key={key} className={classes.icon}>
+                  <item.icon />
+                </Grid>
+              ))}
+            </Grid>
           </div>
         </Grid>
       </Grid>

@@ -41,7 +41,7 @@ function Skills() {
   );
 
   return (
-    <Paper className={classes.ground}>
+    <Paper className={classes.ground} id="skills">
       <Grid container>
         <Grid item md={12}>
           <div className={classes.content}>

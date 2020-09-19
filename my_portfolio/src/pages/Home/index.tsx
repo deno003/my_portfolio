@@ -42,6 +42,7 @@ function Home(props: any) {
     <Paper
       className={classes.mainFeaturedPost}
       style={{ backgroundImage: `url(${post.image})` }}
+      id="home"
     >
       <img style={{ display: 'none' }} src={post.image} alt={post.imageText} />
       <div className={classes.overlay} />

@@ -8,7 +8,7 @@ import About from 'pages/About/index';
 import Skills from 'pages/Skills/index';
 import Social from 'pages/Social/index';
 import Works from 'pages/Works/index';
-import NavTabs from 'components/NavTabs';
+import NavLink from 'components/NavLink';
 
 // import homeContent from 'contents/homeContent.json';
 const homeContent = {
@@ -35,7 +35,7 @@ function Main(Props: any) {
     <Container maxWidth="lg" className={classes.Main}>
       <main>
         <Home post={homeContent} />
-        <NavTabs />
+        <NavLink />
         <About />
         <Skills />
         <Works />

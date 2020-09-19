@@ -33,7 +33,7 @@ function About() {
   const contents = useContext(AboutContext);
 
   return (
-    <Paper className={classes.ground}>
+    <Paper className={classes.ground} id="about">
       <Grid container>
         <Grid item md={12}>
           <div className={classes.content}>

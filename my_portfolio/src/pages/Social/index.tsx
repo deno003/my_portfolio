@@ -3,6 +3,7 @@ import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Twitter from '@material-ui/icons/Twitter';
 import GitHub from '@material-ui/icons/GitHub';
@@ -30,10 +31,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: theme.spacing(2),
   },
   iconContainer: {
+    display: 'flex',
+    justifyContent: 'center',
     backgroundPosition: 'center',
   },
   icon: {
     margin: theme.spacing(2),
+    color: theme.palette.common.white,
   },
 }));
 
@@ -62,7 +66,7 @@ function Social() {
   );
 
   return (
-    <Paper className={classes.ground}>
+    <Paper className={classes.ground} id="social">
       <Grid container>
         <Grid item md={12}>
           <div className={classes.content}>
@@ -75,13 +79,22 @@ function Social() {
               Social
             </Typography>
             <Divider className={classes.divider} />
-            <Grid container className={classes.iconContainer}>
+            <div className={classes.iconContainer}>
               {newContents.map((item: icon, key) => (
-                <Grid item key={key} className={classes.icon}>
-                  <item.icon />
-                </Grid>
+                <Link
+                  display="block"
+                  variant="body1"
+                  href={item.link}
+                  key={key}
+                >
+                  <Grid container>
+                    <Grid item key={key} className={classes.icon}>
+                      <item.icon />
+                    </Grid>
+                  </Grid>
+                </Link>
               ))}
-            </Grid>
+            </div>
           </div>
         </Grid>
       </Grid>

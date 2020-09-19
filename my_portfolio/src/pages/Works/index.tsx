@@ -43,7 +43,7 @@ function Works() {
   const classes = useStyle();
 
   return (
-    <Paper className={classes.ground}>
+    <Paper className={classes.ground} id="works">
       <Grid container>
         <Grid item md={12}>
           <div className={classes.content}>

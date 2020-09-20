@@ -9,28 +9,24 @@ import { SkillsContext } from 'App';
 import SkillsComponent from 'components/SkillsComponent';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  ground: {
+  root: {
     position: 'relative',
-    backgroundColor: theme.palette.grey[900],
-    color: theme.palette.common.white,
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.text.primary,
     marginBottom: theme.spacing(1),
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
   },
   content: {
     position: 'relative',
     padding: theme.spacing(4),
   },
   divider: {
-    backgroundColor: theme.palette.grey[100],
+    backgroundColor: theme.palette.secondary.main,
     marginBottom: theme.spacing(2),
   },
-  cardGrid: {
-    padding: '0 16px',
-  },
   container: {
-    maxWidth: '1200px',
+    display:'flex',
+    justifyContent: 'center',
+    backgroundPosition: 'center',
   },
 }));
 
@@ -41,7 +37,7 @@ function Skills() {
   );
 
   return (
-    <Paper className={classes.ground} id="skills">
+    <Paper className={classes.root} id="skills">
       <Grid container>
         <Grid item md={12}>
           <div className={classes.content}>
@@ -59,12 +55,12 @@ function Skills() {
               container
               className={classes.container}
               spacing={3}
+              justify="center"
               alignItems="center"
             >
               {contents.map((item, key) => (
                 <Grid
                   item
-                  className={classes.cardGrid}
                   key={key}
                   xs={12}
                   sm={6}

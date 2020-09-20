@@ -9,21 +9,19 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { AboutContext } from 'App';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  ground: {
+  root: {
     position: 'relative',
-    backgroundColor: theme.palette.grey[900],
-    color: theme.palette.common.white,
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.text.primary,
     marginBottom: theme.spacing(1),
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
+
   },
-  content: {
+  subtitle: {
     position: 'relative',
     padding: theme.spacing(4),
   },
   divider: {
-    backgroundColor: theme.palette.grey[100],
+    backgroundColor: theme.palette.primary.light,
     marginBottom: theme.spacing(2),
   },
 }));
@@ -33,10 +31,10 @@ function About() {
   const contents = useContext(AboutContext);
 
   return (
-    <Paper className={classes.ground} id="about">
+    <Paper className={classes.root} id="about">
       <Grid container>
         <Grid item md={12}>
-          <div className={classes.content}>
+          <div className={classes.subtitle}>
             <Typography
               component="h1"
               variant="h4"

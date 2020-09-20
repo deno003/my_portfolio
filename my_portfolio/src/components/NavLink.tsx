@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   AppBar: {
     position: 'relative',
     boxShadow: 'none',
-    borderBottom: `1px solid ${theme.palette.grey['100']}`,
+    borderBottom: `1px solid ${theme.palette.secondary.main}`,
     backgroundColor: theme.palette.common.black,
     flexGrow: 1,
   },
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     overflowX: 'auto',
   },
   toolbarLink: {
-    color: theme.palette.common.white,
+    color: theme.palette.text.primary,
     padding: theme.spacing(1),
     flexShrink: 0,
   },
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   link: {
     margin: theme.spacing(2),
-    color: theme.palette.common.white,
+    color: theme.palette.text.primary,
   },
 }));
 

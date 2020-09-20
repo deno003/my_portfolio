@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 
 // components
 import Home from 'pages/Home/index';
@@ -21,10 +20,8 @@ const homeContent = {
 // styles
 const useStyles = makeStyles((theme: Theme) => ({
   Main: {
-    position: 'relative',
-    boxShadow: 'none',
-    borderBottom: `1px solid ${theme.palette.grey['100']}`,
-    backgroundColor: 'black',
+    backgroundColor: theme.palette.primary.main,
+    padding: theme.spacing(2)
   },
 }));
 
@@ -32,7 +29,7 @@ function Main(Props: any) {
   const classes = useStyles(Props);
 
   return (
-    <Container maxWidth="lg" className={classes.Main}>
+    <div className={classes.Main}>
       <main>
         <Home post={homeContent} />
         <NavLink />
@@ -41,7 +38,7 @@ function Main(Props: any) {
         <Works />
         <Social />
       </main>
-    </Container>
+    </div>
   );
 }
 

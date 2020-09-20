@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  mainFeaturedPost: {
+  root: {
     position: 'relative',
-    backgroundColor: theme.palette.grey[800],
-    color: theme.palette.common.white,
-    marginBottom: theme.spacing(4),
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.text.primary,
+    marginBottom: theme.spacing(2),
     backgroundImage: 'url(https://source.unsplash.com/random)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     left: 0,
     backgroundColor: 'rgba(0,0,0,.3)',
   },
-  mainFeaturedPostContent: {
+  typography: {
     position: 'relative',
     padding: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
@@ -40,7 +40,7 @@ function Home(props: any) {
 
   return (
     <Paper
-      className={classes.mainFeaturedPost}
+      className={classes.root}
       style={{ backgroundImage: `url(${post.image})` }}
       id="home"
     >
@@ -48,7 +48,7 @@ function Home(props: any) {
       <div className={classes.overlay} />
       <Grid container>
         <Grid item md={6}>
-          <div className={classes.mainFeaturedPostContent}>
+          <div className={classes.typography}>
             <Typography
               component="h1"
               variant="h3"

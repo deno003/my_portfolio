@@ -16,9 +16,11 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: 'flex',
-    backgroundColor: theme.palette.grey[800],
-    color: theme.palette.common.white,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.text.primary,
     alignItems: 'center',
+    maxWidth: 500,
+    maxHeight: 100
   },
   details: {
     flexDirection: 'column',
@@ -34,7 +36,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     width: '17%',
-    height: '17%',
+    height: 'auto',
+
   },
   progress: {
     paddingTop: theme.spacing(1),

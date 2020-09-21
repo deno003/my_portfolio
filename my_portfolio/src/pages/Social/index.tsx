@@ -8,15 +8,21 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import Twitter from '@material-ui/icons/Twitter';
 import GitHub from '@material-ui/icons/GitHub';
 import EMail from '@material-ui/icons/Email';
+// import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
+import Steam from 'image/svg/steam.svg';
 
 // contexts
 import { SocialContext } from 'App';
+
+// function SteamIcon(props: SvgIconProps) {
+//   return <SvgIcon component={Steam} viewBox="0 0 600 476.6" />;
+// }
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     backgroundColor: theme.palette.primary.dark,
     color: theme.palette.text.primary,
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(0),
   },
   content: {
     padding: theme.spacing(4),
@@ -31,6 +37,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   icon: {
     margin: theme.spacing(2),
+    marginBottom: theme.spacing(0),
     color: theme.palette.text.primary,
   },
 }));
@@ -49,14 +56,14 @@ function Social() {
     (newContents: icon[], content) => {
       if (content.media === 'Twitter') {
         content.icon = Twitter;
-        newContents.push(content);
       } else if (content.media === 'GitHub') {
         content.icon = GitHub;
-        newContents.push(content);
       } else if (content.media === 'EMail') {
         content.icon = EMail;
-        newContents.push(content);
+      } else if (content.media === 'steam') {
+        content.icon = Steam;
       }
+      newContents.push(content);
       return newContents;
     },
     new Array(),
@@ -64,8 +71,8 @@ function Social() {
 
   return (
     <Paper className={classes.root} id="social">
-      <Grid container>
-        <Grid item md={12}>
+      <Grid container justify="center" alignItems="center">
+        <Grid item xs={12} md={12}>
           <div className={classes.content}>
             <Typography
               component="h1"

@@ -8,6 +8,7 @@ import Skills from 'pages/Skills/index';
 import Social from 'pages/Social/index';
 import Works from 'pages/Works/index';
 import NabTabs from 'components/NavTabs';
+import Footer from 'pages/footer';
 
 // import homeContent from 'contents/homeContent.json';
 const homeContent = {
@@ -37,6 +38,7 @@ function Main(Props: any) {
         <Skills />
         <Works />
         <Social />
+        <Footer />
       </main>
     </div>
   );

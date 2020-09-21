@@ -7,7 +7,6 @@ import About from 'pages/About/index';
 import Skills from 'pages/Skills/index';
 import Social from 'pages/Social/index';
 import Works from 'pages/Works/index';
-import NavLink from 'components/NavLink';
 import NabTabs from 'components/NavTabs';
 
 // import homeContent from 'contents/homeContent.json';
@@ -33,7 +32,6 @@ function Main(Props: any) {
     <div className={classes.Main}>
       <main>
         <Home post={homeContent} />
-        <NavLink />
         <NabTabs />
         <About />
         <Skills />

@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(4),
   },
   divider: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.light,
     marginBottom: theme.spacing(2),
   },
   container: {
-    display:'flex',
+    display: 'flex',
     justifyContent: 'center',
     backgroundPosition: 'center',
   },
@@ -55,17 +55,11 @@ function Skills() {
               container
               className={classes.container}
               spacing={3}
-              justify="center"
-              alignItems="center"
+              justify="space-evenly"
+              alignItems="flex-start"
             >
               {contents.map((item, key) => (
-                <Grid
-                  item
-                  key={key}
-                  xs={12}
-                  sm={6}
-                  md={4}
-                >
+                <Grid item key={key} xs={12} sm={6} md={4}>
                   <SkillsComponent item={item} />
                 </Grid>
               ))}

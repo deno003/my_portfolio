@@ -12,8 +12,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   AppBar: {
     position: 'relative',
     boxShadow: 'none',
-    borderBottom: `1px solid ${theme.palette.grey['100']}`,
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: theme.palette.secondary.dark,
     flexGrow: 1,
   },
   toolbarSecondary: {
@@ -30,9 +29,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'space-around',
     backgroundPosition: 'center',
   },
-  link: {
-    margin: theme.spacing(2),
-    color: theme.palette.common.white,
+  linkTab: {
+    '&:hover': {
+      color: theme.palette.text.secondary,
+      opacity: 1,
+    },
+    color: theme.palette.text.primary,
   },
 }));
 
@@ -49,9 +51,13 @@ type LinkTabProps = {
 };
 
 function LinkTab(props: LinkTabProps) {
+  const classes = useStyles(props);
+
   return (
     <Tab
       component="a"
+      className={classes.linkTab}
+      // scrollイベント
       onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         event.preventDefault();
         const targetElement: any = document.getElementById(props.href);
@@ -81,12 +87,7 @@ function NavTabs(Props: any) {
     <div>
       <AppBar position="static" className={classes.AppBar}>
         <div>
-          <Tabs
-            variant="fullWidth"
-            value={value}
-            onChange={handleChange}
-            aria-label="nav tabs"
-          >
+          <Tabs variant="fullWidth" value={value} onChange={handleChange}>
             {sections.map((section) => (
               <LinkTab label={section.title} href={section.url} />
             ))}

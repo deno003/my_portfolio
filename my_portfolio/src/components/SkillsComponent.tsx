@@ -25,9 +25,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   details: {
     flexDirection: 'column',
     flex: '1 0 auto',
+    minWidth: 0,
   },
   content: {
     alignContent: 'center',
+    paddingLeft: theme.spacing(1),
   },
   cover: {
     position: 'relative',
@@ -80,18 +82,15 @@ function SkillsComponent(props: iProps) {
       <CardMedia
         className={classes.cover}
         component="img"
-        // image={props.item?.image}
         src={`${process.env.PUBLIC_URL}/svg/${props.item?.image}.svg`}
-        // title={props.item?.name}
+        title={props.item?.name}
       />
       <div className={classes.details}>
         <CardContent className={classes.content}>
           <Typography component="h5" variant="subtitle1">
             {props.item?.name}
           </Typography>
-          <Typography variant="body1">
-            UseCase: {props.item?.usecase}
-          </Typography>
+          <Typography variant="body1">Scene: {props.item?.usecase}</Typography>
           <div className={classes.progress}>
             <BorderLinearProgress
               variant="determinate"

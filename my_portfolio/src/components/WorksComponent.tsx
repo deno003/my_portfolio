@@ -15,7 +15,9 @@ const useStyle = makeStyles((theme: Theme) => ({
     color: theme.palette.text.primary,
   },
   media: {
-    height: 140,
+    height: 200,
+    margin: theme.spacing(1),
+    marginBottom: theme.spacing(0),
   },
 }));
 
@@ -29,6 +31,7 @@ type item = {
   text?: string;
   link?: string;
   gitHubUrl?: string;
+  image?: string;
 };
 
 function MediaCard(props: iProps) {
@@ -37,7 +40,11 @@ function MediaCard(props: iProps) {
   return (
     <Card className={classes.root}>
       <CardActioArea>
-        <CardMedia className={classes.media} image="" title="thumbnail" />
+        <CardMedia
+          className={classes.media}
+          image={`${process.env.PUBLIC_URL}${props.item?.image}`}
+          title="thumbnail"
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.item?.title}

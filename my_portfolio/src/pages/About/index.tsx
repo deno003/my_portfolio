@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.dark,
     color: theme.palette.text.primary,
     marginBottom: theme.spacing(1),
-
   },
   subtitle: {
     position: 'relative',

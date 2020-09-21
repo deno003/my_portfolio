@@ -11,8 +11,8 @@ import Typography from '@material-ui/core/Typography';
 const useStyle = makeStyles((theme: Theme) => ({
   root: {
     maxWidth: 345,
-    backgroundColor: theme.palette.grey[800],
-    color: theme.palette.common.white,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.text.primary,
   },
   media: {
     height: 140,
@@ -48,10 +48,10 @@ function MediaCard(props: iProps) {
         </CardContent>
       </CardActioArea>
       <CardActions>
-        <Button size="small" color="secondary" href={props.item?.link}>
+        <Button size="small" color="inherit" href={props.item?.link}>
           Link
         </Button>
-        <Button size="small" color="secondary" href={props.item?.gitHubUrl}>
+        <Button size="small" color="inherit" href={props.item?.gitHubUrl}>
           GitHub
         </Button>
       </CardActions>

@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.text.primary,
     alignItems: 'center',
     maxWidth: 500,
-    maxHeight: 100
+    maxHeight: 100,
   },
   details: {
     flexDirection: 'column',
@@ -37,7 +37,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: theme.spacing(2),
     width: '17%',
     height: 'auto',
-
+    maxWidth: '256px',
+    maxHeight: '256px',
   },
   progress: {
     paddingTop: theme.spacing(1),
@@ -79,7 +80,8 @@ function SkillsComponent(props: iProps) {
       <CardMedia
         className={classes.cover}
         component="img"
-        image={props.item?.image}
+        // image={props.item?.image}
+        src={`${process.env.PUBLIC_URL}/svg/${props.item?.image}.svg`}
         // title={props.item?.name}
       />
       <div className={classes.details}>

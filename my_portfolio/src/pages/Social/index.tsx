@@ -8,14 +8,18 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import Twitter from '@material-ui/icons/Twitter';
 import GitHub from '@material-ui/icons/GitHub';
 import EMail from '@material-ui/icons/Email';
-// import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
-import Steam from 'image/svg/steam.svg';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import { RiSteamFill } from 'react-icons/ri';
 
 // contexts
 import { SocialContext } from 'App';
 
-// function SteamIcon(props: SvgIconProps) {
-//   return <SvgIcon component={Steam} viewBox="0 0 600 476.6" />;
+function SteamIcon() {
+  return <SvgIcon component={RiSteamFill} />;
+}
+
+// function WantedlyIcon() {
+//   return <SvgIcon component={`${process.env.PUBLIC_URL}/images/svg/wantedly_logo.svg`} />
 // }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -61,12 +65,12 @@ function Social() {
       } else if (content.media === 'EMail') {
         content.icon = EMail;
       } else if (content.media === 'steam') {
-        content.icon = Steam;
+        content.icon = SteamIcon;
       }
       newContents.push(content);
       return newContents;
     },
-    new Array(),
+    [],
   );
 
   return (

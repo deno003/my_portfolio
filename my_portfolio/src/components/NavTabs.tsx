@@ -88,8 +88,8 @@ function NavTabs(Props: any) {
       <AppBar position="static" className={classes.AppBar}>
         <div>
           <Tabs variant="fullWidth" value={value} onChange={handleChange}>
-            {sections.map((section) => (
-              <LinkTab label={section.title} href={section.url} />
+            {sections.map((section, key) => (
+              <LinkTab label={section.title} href={section.url} key={key} />
             ))}
           </Tabs>
         </div>

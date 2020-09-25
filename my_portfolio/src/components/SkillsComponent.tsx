@@ -82,7 +82,7 @@ function SkillsComponent(props: iProps) {
       <CardMedia
         className={classes.cover}
         component="img"
-        src={`${process.env.PUBLIC_URL}/svg/${props.item?.image}.svg`}
+        src={`${process.env.PUBLIC_URL}/images/svg/${props.item?.image}.svg`}
         title={props.item?.name}
       />
       <div className={classes.details}>

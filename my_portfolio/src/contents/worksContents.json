@@ -3,7 +3,7 @@
     "title": "Deno's Portfolio",
     "tools": "React Hooks + Typescript",
     "text": "This site.\nCreated by studying the front end",
-    "image": "/image/portfolio.png",
+    "image": "/images/portfolio.png",
     "link": "",
     "gitHubUrl": "https://github.com/deno003/my_portfolio"
   }

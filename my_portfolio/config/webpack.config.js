@@ -370,9 +370,6 @@ module.exports = function (webpackEnv) {
                   'babel-preset-react-app/webpack-overrides',
                 ),
 
-                test: /\.svg$/,
-                use: ['@svgr/webpack'],
-
                 plugins: [
                   [
                     require.resolve('babel-plugin-named-asset-import'),

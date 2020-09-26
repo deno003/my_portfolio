@@ -10,6 +10,7 @@ import GitHub from '@material-ui/icons/GitHub';
 import EMail from '@material-ui/icons/Email';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { RiSteamFill } from 'react-icons/ri';
+// import { Linking } from 'react-native';
 
 // contexts
 import { SocialContext } from 'App';

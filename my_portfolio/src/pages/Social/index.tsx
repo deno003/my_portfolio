@@ -7,37 +7,43 @@ import Link from '@material-ui/core/Link';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Twitter from '@material-ui/icons/Twitter';
 import GitHub from '@material-ui/icons/GitHub';
+import EMail from '@material-ui/icons/Email';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import { RiSteamFill } from 'react-icons/ri';
+// import { Linking } from 'react-native';
 
 // contexts
 import { SocialContext } from 'App';
 
+function SteamIcon() {
+  return <SvgIcon component={RiSteamFill} />;
+}
+
+// function WantedlyIcon() {
+//   return <SvgIcon component={`${process.env.PUBLIC_URL}/images/svg/wantedly_logo.svg`} />
+// }
+
 const useStyles = makeStyles((theme: Theme) => ({
-  ground: {
-    position: 'relative',
-    backgroundColor: theme.palette.grey[900],
-    color: theme.palette.common.white,
-    marginBottom: theme.spacing(1),
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
+  root: {
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.text.primary,
+    marginBottom: theme.spacing(0),
   },
   content: {
-    position: 'relative',
     padding: theme.spacing(4),
   },
   divider: {
-    backgroundColor: theme.palette.grey[100],
+    backgroundColor: theme.palette.primary.light,
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(2),
   },
   iconContainer: {
-    display: 'flex',
     justifyContent: 'center',
-    backgroundPosition: 'center',
   },
   icon: {
     margin: theme.spacing(2),
-    color: theme.palette.common.white,
+    marginBottom: theme.spacing(0),
+    color: theme.palette.text.primary,
   },
 }));
 
@@ -55,20 +61,23 @@ function Social() {
     (newContents: icon[], content) => {
       if (content.media === 'Twitter') {
         content.icon = Twitter;
-        newContents.push(content);
       } else if (content.media === 'GitHub') {
         content.icon = GitHub;
-        newContents.push(content);
+      } else if (content.media === 'EMail') {
+        content.icon = EMail;
+      } else if (content.media === 'steam') {
+        content.icon = SteamIcon;
       }
+      newContents.push(content);
       return newContents;
     },
-    new Array(),
+    [],
   );
 
   return (
-    <Paper className={classes.ground} id="social">
-      <Grid container>
-        <Grid item md={12}>
+    <Paper className={classes.root} id="social">
+      <Grid container justify="center" alignItems="center">
+        <Grid item xs={12} md={12}>
           <div className={classes.content}>
             <Typography
               component="h1"
@@ -79,7 +88,7 @@ function Social() {
               Social
             </Typography>
             <Divider className={classes.divider} />
-            <div className={classes.iconContainer}>
+            <Grid container className={classes.iconContainer}>
               {newContents.map((item: icon, key) => (
                 <Link
                   display="block"
@@ -87,14 +96,12 @@ function Social() {
                   href={item.link}
                   key={key}
                 >
-                  <Grid container>
-                    <Grid item key={key} className={classes.icon}>
-                      <item.icon />
-                    </Grid>
+                  <Grid item key={key} className={classes.icon}>
+                    <item.icon />
                   </Grid>
                 </Link>
               ))}
-            </div>
+            </Grid>
           </div>
         </Grid>
       </Grid>

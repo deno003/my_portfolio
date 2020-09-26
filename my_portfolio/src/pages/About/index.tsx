@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.dark,
     color: theme.palette.text.primary,
     marginBottom: theme.spacing(1),
-
   },
   subtitle: {
     position: 'relative',
@@ -45,13 +44,16 @@ function About() {
             </Typography>
             <Divider className={classes.divider} />
             {contents.map((item, key) => (
-              <Typography variant="h6" color="inherit" paragraph>
+              <Typography variant="h6" color="inherit" key={key} gutterBottom>
                 {item.title}
-                <Typography variant="body1" color="inherit" paragraph>
-                  {item.text.split('\n').map((key: any, item: any) => {
-                    return <div key={item}>- {key}</div>;
-                  })}
-                </Typography>
+
+                {item.text.split('\n').map((key: any) => {
+                  return (
+                    <Typography variant="body1" color="inherit" key={key}>
+                      - {key}
+                    </Typography>
+                  );
+                })}
               </Typography>
             ))}
           </div>

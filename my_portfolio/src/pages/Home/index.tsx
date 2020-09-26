@@ -57,7 +57,7 @@ function Home(props: any) {
             >
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
+            <Typography variant="h5" color="inherit">
               {post.description.split('\n').map((t: any, i: any) => {
                 return <div key={i}>{t}</div>;
               })}

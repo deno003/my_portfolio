@@ -20,14 +20,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.text.primary,
     alignItems: 'center',
     maxWidth: 500,
-    maxHeight: 100
+    maxHeight: 100,
   },
   details: {
     flexDirection: 'column',
     flex: '1 0 auto',
+    minWidth: 0,
   },
   content: {
     alignContent: 'center',
+    paddingLeft: theme.spacing(1),
   },
   cover: {
     position: 'relative',
@@ -37,7 +39,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: theme.spacing(2),
     width: '17%',
     height: 'auto',
-
+    maxWidth: '256px',
+    maxHeight: '256px',
   },
   progress: {
     paddingTop: theme.spacing(1),
@@ -79,17 +82,15 @@ function SkillsComponent(props: iProps) {
       <CardMedia
         className={classes.cover}
         component="img"
-        image={props.item?.image}
-        // title={props.item?.name}
+        src={`${process.env.PUBLIC_URL}/images/svg/${props.item?.image}.svg`}
+        title={props.item?.name}
       />
       <div className={classes.details}>
         <CardContent className={classes.content}>
           <Typography component="h5" variant="subtitle1">
             {props.item?.name}
           </Typography>
-          <Typography variant="body1">
-            UseCase: {props.item?.usecase}
-          </Typography>
+          <Typography variant="body1">Scene: {props.item?.usecase}</Typography>
           <div className={classes.progress}>
             <BorderLinearProgress
               variant="determinate"

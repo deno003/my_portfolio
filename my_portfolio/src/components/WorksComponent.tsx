@@ -11,11 +11,13 @@ import Typography from '@material-ui/core/Typography';
 const useStyle = makeStyles((theme: Theme) => ({
   root: {
     maxWidth: 345,
-    backgroundColor: theme.palette.grey[800],
-    color: theme.palette.common.white,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.text.primary,
   },
   media: {
-    height: 140,
+    height: 200,
+    margin: theme.spacing(1),
+    marginBottom: theme.spacing(0),
   },
 }));
 
@@ -29,6 +31,7 @@ type item = {
   text?: string;
   link?: string;
   gitHubUrl?: string;
+  image?: string;
 };
 
 function MediaCard(props: iProps) {
@@ -37,7 +40,11 @@ function MediaCard(props: iProps) {
   return (
     <Card className={classes.root}>
       <CardActioArea>
-        <CardMedia className={classes.media} image="" title="thumbnail" />
+        <CardMedia
+          className={classes.media}
+          image={`${process.env.PUBLIC_URL}${props.item?.image}`}
+          title="thumbnail"
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.item?.title}
@@ -48,10 +55,10 @@ function MediaCard(props: iProps) {
         </CardContent>
       </CardActioArea>
       <CardActions>
-        <Button size="small" color="secondary" href={props.item?.link}>
+        <Button size="small" color="inherit" href={props.item?.link}>
           Link
         </Button>
-        <Button size="small" color="secondary" href={props.item?.gitHubUrl}>
+        <Button size="small" color="inherit" href={props.item?.gitHubUrl}>
           GitHub
         </Button>
       </CardActions>

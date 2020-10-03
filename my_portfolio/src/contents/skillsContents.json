@@ -21,13 +21,13 @@
     "image": "javascript",
     "name": "javascript",
     "level": 40,
-    "usecase": "business and private"
+    "usecase": "business/private"
   },
   {
     "image": "nodejs",
     "name": "Node.js",
     "level": 40,
-    "usecase": "business and private"
+    "usecase": "business/private"
   },
   {
     "image": "jquery",
@@ -57,7 +57,7 @@
     "image": "git",
     "name": "git",
     "level": 40,
-    "usecase": "business and private"
+    "usecase": "business/private"
   },
   {
     "image": "material-ui",

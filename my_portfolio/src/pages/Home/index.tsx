@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.text.primary,
     marginBottom: theme.spacing(2),
-    backgroundImage: 'url(public/images/home.jpg)',
+    backgroundImage: 'url(images/home.jpg)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',

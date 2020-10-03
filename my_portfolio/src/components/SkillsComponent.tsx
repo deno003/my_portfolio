@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     maxHeight: 100,
+    maxWidth: 500,
   },
   details: {
     flexDirection: 'column',
@@ -32,16 +33,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingLeft: theme.spacing(1),
   },
   cover: {
-    position: 'relative',
+    position:'relative',
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     width: '17%',
     height: 'auto',
-    maxWidth: '256px',
-    maxHeight: '256px',
-    minWidth: 0,
+
   },
   progress: {
     paddingTop: theme.spacing(1),

@@ -59,7 +59,7 @@ function Skills() {
               alignItems="center"
             >
               {contents.map((item, key) => (
-                <Grid item key={key} xs={12} sm={6} md={4}>
+                <Grid item key={key} xs={12} sm={6} md={3}>
                   <SkillsComponent item={item} />
                 </Grid>
               ))}

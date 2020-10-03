@@ -52,5 +52,17 @@
     "name": "Typescript",
     "level": 40,
     "usecase": "private"
+  },
+  {
+    "image": "git",
+    "name": "git",
+    "level": 40,
+    "usecase": "business and private"
+  },
+  {
+    "image": "material-ui",
+    "name": "material-ui",
+    "level": 30,
+    "usecase": "private"
   }
 ]

@@ -10,7 +10,6 @@ import GitHub from '@material-ui/icons/GitHub';
 import EMail from '@material-ui/icons/Email';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { RiSteamFill } from 'react-icons/ri';
-// import { Linking } from 'react-native';
 
 // contexts
 import { SocialContext } from 'App';
@@ -18,10 +17,6 @@ import { SocialContext } from 'App';
 function SteamIcon() {
   return <SvgIcon component={RiSteamFill} />;
 }
-
-// function WantedlyIcon() {
-//   return <SvgIcon component={`${process.env.PUBLIC_URL}/images/svg/wantedly_logo.svg`} />
-// }
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {

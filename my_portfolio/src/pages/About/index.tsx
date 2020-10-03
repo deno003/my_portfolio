@@ -23,6 +23,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.light,
     marginBottom: theme.spacing(2),
   },
+  typography: {
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+    },
+  },
 }));
 
 function About() {
@@ -44,12 +49,22 @@ function About() {
             </Typography>
             <Divider className={classes.divider} />
             {contents.map((item, key) => (
-              <Typography variant="h6" color="inherit" key={key} gutterBottom>
+              <Typography
+                variant="h6"
+                color="inherit"
+                key={key}
+                gutterBottom
+                className={classes.typography}
+              >
                 {item.title}
-
                 {item.text.split('\n').map((key: any) => {
                   return (
-                    <Typography variant="body1" color="inherit" key={key}>
+                    <Typography
+                      variant="body1"
+                      color="inherit"
+                      key={key}
+                      className={classes.typography}
+                    >
                       - {key}
                     </Typography>
                   );

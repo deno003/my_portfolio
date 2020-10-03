@@ -11,10 +11,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.text.primary,
     marginBottom: theme.spacing(2),
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(public/images/home.jpg)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
+    backdropFilter: 'blur(4px)',
+  },
+  backgroundImage: {
+    filter: 'blur(2px)',
   },
   overlay: {
     position: 'absolute',
@@ -39,12 +43,7 @@ function Home(props: any) {
   const { post } = props;
 
   return (
-    <Paper
-      className={classes.root}
-      style={{ backgroundImage: `url(${post.image})` }}
-      id="home"
-    >
-      <img style={{ display: 'none' }} src={post.image} alt={post.imageText} />
+    <Paper className={classes.root} id="home">
       <div className={classes.overlay} />
       <Grid container>
         <Grid item md={6}>

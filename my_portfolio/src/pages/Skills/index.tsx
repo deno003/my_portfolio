@@ -55,8 +55,8 @@ function Skills() {
               container
               className={classes.container}
               spacing={3}
-              justify="space-evenly"
-              alignItems="flex-start"
+              justify="center"
+              alignItems="center"
             >
               {contents.map((item, key) => (
                 <Grid item key={key} xs={12} sm={6} md={4}>

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.text.primary,
     alignItems: 'center',
-    maxWidth: 500,
+    justifyContent: 'center',
     maxHeight: 100,
   },
   details: {
@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 'auto',
     maxWidth: '256px',
     maxHeight: '256px',
+    minWidth: 0,
   },
   progress: {
     paddingTop: theme.spacing(1),

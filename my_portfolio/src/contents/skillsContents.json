@@ -14,13 +14,13 @@
   {
     "image": "kotlin",
     "name": "Kotlin",
-    "level": 40,
+    "level": 30,
     "usecase": "private"
   },
   {
     "image": "javascript",
     "name": "javascript",
-    "level": 50,
+    "level": 40,
     "usecase": "business and private"
   },
   {
@@ -38,7 +38,7 @@
   {
     "image": "react",
     "name": "React",
-    "level": 60,
+    "level": 40,
     "usecase": "private"
   },
   {
@@ -50,7 +50,7 @@
   {
     "image": "typescript",
     "name": "Typescript",
-    "level": 50,
+    "level": 40,
     "usecase": "private"
   }
 ]

@@ -90,6 +90,8 @@ function Social() {
                   variant="body1"
                   href={item.link}
                   key={key}
+                  target="_blank"
+                  rel="noopener"
                 >
                   <Grid item key={key} className={classes.icon}>
                     <item.icon />

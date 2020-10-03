@@ -44,14 +44,9 @@ function Works() {
               Works
             </Typography>
             <Divider className={classes.divider} />
-            <Grid
-              container
-              spacing={3}
-              justify="flex-start"
-              alignItems="center"
-            >
+            <Grid container spacing={3} justify="center" alignItems="center">
               {contents.map((item, key) => (
-                <Grid item key={key} xs={12} sm={6} md={4}>
+                <Grid item key={key} xs={12} sm={6} md={3}>
                   <WorksComponent item={item} />
                 </Grid>
               ))}

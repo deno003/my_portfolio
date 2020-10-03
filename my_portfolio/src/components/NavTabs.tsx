@@ -4,7 +4,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 // material-ui
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
-import { animateScroll, scroller } from 'react-scroll';
+import { animateScroll } from 'react-scroll';
 import Tab from '@material-ui/core/Tab';
 
 // styles
@@ -53,17 +53,21 @@ type LinkTabProps = {
 function LinkTab(props: LinkTabProps) {
   const classes = useStyles(props);
 
+  const scrollToElement = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    event.preventDefault();
+    const targetElement: any = document.getElementById(props.href);
+    const elementPosition: any = targetElement.getBoundingClientRect();
+    animateScroll.scrollTo(elementPosition.top + window.pageYOffset - 5);
+  };
+
   return (
     <Tab
       component="a"
       className={classes.linkTab}
       // scrollイベント
-      onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        event.preventDefault();
-        const targetElement: any = document.getElementById(props.href);
-        const elementPosition: any = targetElement.getBoundingClientRect();
-        animateScroll.scrollTo(elementPosition.top + window.pageYOffset);
-      }}
+      onClick={scrollToElement}
       {...props}
     ></Tab>
   );
@@ -75,12 +79,6 @@ function NavTabs(Props: any) {
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
-    scroller.scrollTo('scrollElementToAbout', {
-      duration: 1500,
-      delay: 100,
-      smooth: true,
-      containerId: 'scrollElementToAbout',
-    });
   };
 
   return (

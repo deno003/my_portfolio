@@ -1,10 +1,11 @@
 # Deno's Portfolio
+https://deno003.github.io/my_portfolio
 
-## PC
+## PC表示
 ![portfolio-pc](https://user-images.githubusercontent.com/52130732/95675130-cd09e880-0bef-11eb-9f53-4aaa7c3321da.png)
 
-## スマホ
-<img src="https://user-images.githubusercontent.com/52130732/95675187-3f7ac880-0bf0-11eb-8289-cd63f8d82182.png" width="500px">
+## スマホ表示
+<img src="https://user-images.githubusercontent.com/52130732/95675187-3f7ac880-0bf0-11eb-8289-cd63f8d82182.png" width="300px">
 
 ## 概要
 TypeScriptに触ってみたかったのと、フロントエンド側の知識が無さすぎるので勉強を兼ねて作成しました。  
